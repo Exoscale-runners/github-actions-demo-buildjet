@@ -4,10 +4,14 @@ on:
     branches:
       - master
 jobs:
-  build-and-deploy:
-    runs-on: self-hosted
+  build:
+    runs-on: ubuntu-latest
+    # Permissions to use OIDC token authentication
     permissions:
-      contents: write
+      contents: read
+      id-token: write
+      # Allows pushing to the GitHub Container Registry
+      packages: write
     steps:
     - name: Setup Node.js
       uses: actions/setup-node@v4
