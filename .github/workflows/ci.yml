@@ -12,7 +12,12 @@ jobs:
       id-token: write
       # Allows pushing to the GitHub Container Registry
       packages: write
-    steps:
+  steps:
+    - uses: depot/setup-action@v1
+    - uses: depot/build-push-action@v1
+        with:
+          project: p2f61l4ntb
+          context: .
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
@@ -29,3 +34,8 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: build
+    - uses: depot/setup-action@v1
+    - uses: depot/build-push-action@v1
+        with:
+          project: p2f61l4ntb
+          context: .
