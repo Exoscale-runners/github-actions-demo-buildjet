@@ -6,7 +6,7 @@ on:
       - master
 jobs:
   build-and-deploy:
-    runs-on: depot-ubuntu-24.04
+    runs-on: buildjet-4vcpu-ubuntu-2204
     permissions:
       contents: write
     steps:
